@@ -57,7 +57,7 @@ The follwoing heat transfer problem involves using the following equations:
 2. ∇T = (1/κ)(q + (T<sup>4</sup>-T<sub>air</sub><sup>4</sup>))
 3. q = C(ρ)<sup>0.5</sup>(V)<sup>3</sup>(1 - h<sub>w</sub>/h<sub>∞</sub>)/(R<sub>N</sub><sup>0.5</sup>) 
 
-For a better understanding on what each term means and what assumptions are made when calculating these questions see the corresponding sections below. It is important to note that all three equations assum a **1D Simplification** of the problem.
+For a better understanding on what each term means and what assumptions are made when calculating these questions see the corresponding sections below. It is important to note that all three equations assume a **1D Simplification** of the problem.
 
 ### ∂T/∂t = α∇<sup>2</sup>T
 Expanding the gradient using a one dimensional heat transfer problem gives us: ∂T/∂t =α(∂<sup>2</sup>T/∂x<sup>2</sup>). Like the previous equation we can turn this into a boundry value problem and get the following equation:  T<sub>n+1,x</sub> = Δt(α)(T<sub>n,x+1</sub>-2T<sub>n,x</sub>+T<sub>n,x-1</sub>)/[Δx]<sup>2</sup>+T<sub>n,x</sub>. There are 7 new variables in this equation, which are:
