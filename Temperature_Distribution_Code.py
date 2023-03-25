@@ -6,7 +6,7 @@ import orhelper
 from orhelper import FlightDataType
 from orhelper import FlightDataType
 from scipy.optimize import fmin
-# NOTE!!!! This code must run with a textfile that includes the time in sec, temperature of the air in celcius, and speed of the rocket in m/s. In that order, yo ucan download the data from an openrocket simulation
+
 with orhelper.OpenRocketInstance() as instance:
     orh = orhelper.Helper(instance)
     doc = orh.load_doc(os.path.join("Defiance_OR.ork"))
@@ -25,7 +25,7 @@ t = 6
 length = 0.563
 # radius of the tip of the nose cone measured in meters. The thickness of the nose cone is 2cm therefore that should be
 # the min tip radius
-radius_nc_tip = 0.002
+radius_nc_tip = 0.005
 # Material/thermal conductivity in W/m K
 conduc = 0.04
 # Specific heat capacity in J/Kg * K
@@ -122,8 +122,6 @@ def thermal_tool(radius_nc_tip, length, T_init, diffusivity, emiss, conduc):
     n = 3
     for i in range(n):
         #Recalculating heat flux with correction factor based on temperature
-        simulation_values = open("openrocket_values.txt")
-        line = simulation_values.readline()
         heat_flux = []
         idx = 1
         while data[FlightDataType.TYPE_TIME][idx] <= 6.1:
@@ -149,4 +147,3 @@ def thermal_tool(radius_nc_tip, length, T_init, diffusivity, emiss, conduc):
 
 thermal_tool(radius_nc_tip, length, T_init, conduc/(heatcapac*rho), emissivity, conduc)
 
-thermal_tool(radius_nc_tip, length, T_init, conduc/(heatcapac*rho), emissivity, conduc)
